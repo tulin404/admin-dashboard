@@ -1,0 +1,98 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+div, nav, header, section {
+    /* border: 1px solid blue; */
+}
+
+/* BIG SECTIONS */
+
+#container {
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 4fr;
+}
+
+/* NAV */
+
+#container > nav {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+
+/* HEADER */
+
+#container > header {
+    grid-column: 2 / 3;
+}
+
+header {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+
+header > section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2em;
+}
+
+#small-header-section {
+    grid-row: 1 / 2;
+}
+
+#big-header-section {
+    grid-row: 2 / 3;
+}
+
+#small-header-section > div,
+#big-header-section > div {
+    display: flex;
+}
+
+/* DASHBOARD MAIN*/
+
+#container > #dashboard{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+#dashboard-main > *,
+#dashboard-side-features > * {
+    padding: 2rem 1rem 1rem;
+}
+
+.dashboard-titles {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* NOTES SECTION */
+
+#notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* DASHBOARD SIDE FEATURES */
+
+.reminder-item:not(:last-child)::after {
+    content: '';
+    margin: 2px;
+    display: block;
+    height: 1px;
+    border-bottom: 1px solid grey;
+    width: 100%;
+}
