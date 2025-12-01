@@ -1,0 +1,59 @@
+/* DASHBOARD SIDE FEATURES */
+
+#dashboard-side-features {
+    display: flex;
+    flex-direction: column;
+}
+
+/* REMINDERS */
+
+.reminder-item:not(:last-child)::after {
+    content: '';
+    margin: 2px;
+    display: block;
+    height: 1px;
+    border-bottom: 1px solid grey;
+    width: 100%;
+}
+
+#reminders-container {
+    padding-top: 0 !important;
+    display: flex;
+    flex-direction: column;
+    max-height: 75%;
+    overflow-y: scroll;
+    gap: 1rem;
+}
+
+#reminders-container::-webkit-scrollbar {
+    display: none;
+}
+
+.reminder-item:first-child {
+    padding: 1em 1em 0;
+}
+
+.reminder-item:last-child {
+    padding: 0 1rem 1rem;
+}
+
+.reminder-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 1rem;
+    background-color: white;
+}
+
+.reminder-item-text {
+    font-family: 'Noto Sans Display';
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* CALENDAR */
+
+#calendar {
+    display: flex;
+    max-height: 25%;
+}

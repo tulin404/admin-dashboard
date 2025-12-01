@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/side-features.css">
+    <link rel="shortcut icon" href="assets/note-icon.png" type="image/x-icon">
     <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="container">
         <nav>
-            <div id="nav-logo"></div>
-            <div id="nav-main"></div>
-            <div id="nav-settings"></div>
+            <div id="nav-logo">
+                <p>Note.fy</p>
+                <img id="logo" src="assets/note-icon.png" alt="">
+            </div>
+            <div id="nav-main">
+                
+            </div>
         </nav>
         <header>
             <section id="small-header-section">
@@ -33,13 +42,28 @@
                         <div class="note-body">
                             <p class="note-title">Lorem</p><p class="note-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, soluta! Quas corrupti, architecto asperiores iusto et ea voluptate earum quis dignissimos ratione error suscipit neque magni, laboriosam perspiciatis dolorum porro!</p>
                         </div>
-                        <div class="note-buttons"></div>
+                        <div class="note-bottom">
+                            <div class="note-date"></div>
+                            <div class="note-buttons"></div>
+                        </div>
                     </div>
                     <div class="note">
                         <div class="note-body">
                             <p class="note-title">Lorem</p><p class="note-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, soluta! Quas corrupti, architecto asperiores iusto et ea voluptate earum quis dignissimos ratione error suscipit neque magni, laboriosam perspiciatis dolorum porro!</p>
                         </div>
-                        <div class="note-buttons"></div>
+                        <div class="note-bottom">
+                            <div class="note-date"></div>
+                            <div class="note-buttons"></div>
+                        </div>
+                    </div>
+                    <div class="note">
+                        <div class="note-body">
+                            <p class="note-title">Lorem</p><p class="note-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, soluta! Quas corrupti, architecto asperiores iusto et ea voluptate earum quis dignissimos ratione error suscipit neque magni, laboriosam perspiciatis dolorum porro!</p>
+                        </div>
+                        <div class="note-bottom">
+                            <div class="note-date"></div>
+                            <div class="note-buttons"></div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -48,15 +72,14 @@
                     <div><p class="dashboard-titles">Reminders</p></div>
                     <div id="reminders">
                         <div class="reminder-item">
-                            <p class="reminder-item-title">Lorem</p>
-                            <p class="reminder-item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ipsam, optio quod, corrupti ad dolorem praesentium sequi fugit consequuntur sunt quae quasi iure possimus totam, doloremque provident ut harum ullam.</p>
+                            <p class="reminder-item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis</p>
                         </div>
                         <div class="reminder-item">
-                            <p class="reminder-item-title">Lorem</p>
-                            <p class="reminder-item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ipsam, optio quod, corrupti ad dolorem praesentium sequi fugit consequuntur sunt quae quasi iure possimus totam, doloremque provident ut harum ullam.</p>
+                            <p class="reminder-item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis</p>
                         </div>
                     </div>
                 </div>
+                <div id="calendar"></div>
             </section>
         </div>
     </div>

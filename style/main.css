@@ -1,3 +1,7 @@
+:root {
+    --logo-color: #FFE082;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -14,7 +18,7 @@ div, nav, header, section {
 #container {
     min-height: 100dvh;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr 4fr;
 }
 
@@ -26,17 +30,43 @@ div, nav, header, section {
     display: flex;
     flex-direction: column;
     gap: 3em;
+    background-color: #14213d;
+}
+
+#container > nav > * {
+    padding: 1rem;
+}
+
+#nav-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#nav-logo > p {
+    font-size: 2rem;
+    font-family: 'Lexend', Roboto;
+    color: var(--logo-color);
+}
+
+#logo {
+    height: 128px;
+}
+
+#nav-main {
+
 }
 
 /* HEADER */
 
-#container > header {
-    grid-column: 2 / 3;
-}
-
 header {
+    z-index: 1;
+    grid-column: 2 / 3;
     display: grid;
     grid-template-rows: 1fr 2fr;
+    background-color: white;
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.030);
 }
 
 header > section {
@@ -61,21 +91,24 @@ header > section {
 
 /* DASHBOARD MAIN*/
 
-#container > #dashboard{
+#dashboard{
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     display: grid;
     grid-template-columns: 3fr 1fr;
+    background-color: #E2E8F0;
 }
 
 #dashboard-main > *,
 #dashboard-side-features > * {
-    padding: 2rem 1rem 1rem;
+    padding: 1rem 1rem 0 1rem;
 }
 
 .dashboard-titles {
+    padding-top: 2rem !important;
+    font-family: 'Zalando Sans Expanded';
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 /* NOTES SECTION */
@@ -86,13 +119,29 @@ header > section {
     gap: 1rem;
 }
 
-/* DASHBOARD SIDE FEATURES */
+.note {
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: white;
+    border-left: 8px solid #fca311;
+}
 
-.reminder-item:not(:last-child)::after {
-    content: '';
-    margin: 2px;
-    display: block;
-    height: 1px;
-    border-bottom: 1px solid grey;
-    width: 100%;
+.note-body {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.note-title, .note-text {
+    font-family: 'Noto Sans Display';
+}
+
+.note-title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.note-text {
+    font-size: 15px;
+    font-weight: 300;
 }
