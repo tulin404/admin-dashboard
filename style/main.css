@@ -16,6 +16,7 @@ div, nav, header, section {
 /* BIG SECTIONS */
 
 body {
+    background-color: black;
     min-height: 100dvh;
     display: grid;
     grid-template-columns: 1fr 6fr;
@@ -263,6 +264,15 @@ header > section {
     font-weight: 300;
 }
 
+/* BODY OPACITY CLASS (applying as a class to be maintanable) */
+body > *:not(nav):not(#ham-menu) {
+    transition: opacity 0.7s ease;
+}
+
+.opacity {
+    opacity: 0.4;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 560px) {
@@ -326,7 +336,7 @@ header > section {
     }
 
     #nav.active {
-
+        box-shadow: 4px 0 4px rgba(0, 0, 0, 0.4);
         grid-column: 1 / 2;
         display: flex;
         transform: translateX(0px);
