@@ -11,3 +11,36 @@ menu.addEventListener('click', () => {
         e.classList.toggle('opacity')
     });
 })
+
+// THEME
+const themeBtn = document.getElementById('theme-switch');
+const moon = document.getElementById('moon');
+const sun = document.getElementById('sun');
+const searchImg = document.getElementById('search-img');
+const addImg = document.querySelectorAll('.add-img');
+
+function checkTheme() {
+    if (document.body.dataset.theme === 'dark') {
+        moon.classList.add('active');
+        sun.classList.remove('active');
+        searchImg.src = 'assets/search-dark.png';
+        addImg.forEach(img => img.src = 'assets/add-dark.png');
+    } else {
+        sun.classList.add('active');
+        moon.classList.remove('active');
+        searchImg.src = 'assets/search.png'
+        addImg.forEach(img => img.src = 'assets/add.png');
+    }
+};
+
+checkTheme();
+
+themeBtn.addEventListener('click', () => {
+     if (document.body.dataset.theme === 'dark') {
+        document.body.dataset.theme = ''
+     } else {
+        document.body.dataset.theme = 'dark'
+     }
+
+     checkTheme()
+})

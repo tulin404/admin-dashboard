@@ -1,0 +1,97 @@
+/* NOTES SECTION */
+
+#notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.note {
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: var(--note-bg-color);
+    border-left: 8px solid #fca311;
+    transform: translate(0, 0);
+    transition: transform 0.2s linear;
+    box-shadow: 0 0 4px var(--notes-shadow);
+
+    &:hover {
+        transform: translate(-2px, -2px);
+    }
+}
+
+.note-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.note-title, .note-text, #input-note-title, #input-note-text {
+    font-family: 'Noto Sans Display';
+}
+
+.note-title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.note-text {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+#input-note {
+    z-index: 10;
+    position: absolute;
+    background-color: var(--note-bg-color);
+    height: clamp(35dvw, 450px, 80dvw);
+    width: clamp(35dvw, 450px, 80dvw);
+    box-shadow: 0 0 4px var(--notes-shadow);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#input-note-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    textarea {
+        outline: none;
+        resize: none;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        display: block;
+        width: 100%;
+        scrollbar-width: none;
+        background-color: var(--dashboard-input-bg-color);
+        color: var(--text-color);
+        transition: none;
+
+        &::-webkit-scrollbar {
+            height: 0;
+            width: 0;
+        }
+    }
+    #input-note-title {
+        height: auto;
+        font-weight: 600;
+        font-size: clamp(2.2dvw, 36px, 48px);
+    }
+    #input-note-text {
+        font-size: 18px;
+        height: 100%;
+    }
+    #input-note-btns {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            background-color: var(--nav-bg-color);
+            color: white;
+            font-family: 'Noto Sans Display';
+        }
+    }
+}

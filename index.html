@@ -6,6 +6,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/side-features.css">
+    <link rel="stylesheet" href="style/notes.css">
     <link rel="shortcut icon" href="assets/note-icon.png" type="image/x-icon">
     <script src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,16 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="input-note">
+    <div class="note" id="input-note">
         <div id="input-note-body">
-            <input type="text" id="input-note-title"></input>
-            <input type="text" id="input-note-text"></input>
-        </div>
-        <div class="input-note-bottom">
-            <button id="input-note-sub"></button>
-            <div id="input-note-settings">
-                <div class="input-note-date"></div>
-                <div class="input-note-buttons"></div>
+            <textarea placeholder="Title" id="input-note-title"></textarea>
+            <textarea placeholder="Text" id="input-note-text"></textarea>
+            <div id="input-note-btns">
+                <button id="input-cancel">Cancel</button>
+                <button id="input-note-sub">Add Note</button>
             </div>
         </div>
     </div>
@@ -47,13 +45,14 @@
         <section id="small-header-section">
             <div id="header-search">
                 <label for="search-input">
-                    <img src="assets/search.png" alt="">
+                    <img id="search-img" src="assets/search.png" alt="">
                 </label>
                 <input type="text" id="search-input">
             </div>
             <div id="header-small-pfp">
                 <img src="assets/rigby-draw.jpg" alt="" id="small-pfp">
                 <p id="small-name">Túlio Oliveira</p>
+                <button id="theme-switch"><img id="sun" src="assets/sun.png" alt=""> <img id="moon" src="assets/moon.png" alt=""></button>
             </div>
         </section>
         <section id="big-header-section">
@@ -62,15 +61,15 @@
                     <img src="assets/rigby-draw.jpg" alt="">
                 </div>
                 <div id="header-txt">
-                <div id="small-text">Hi there,</div>
-                <div class="big-text">Túlio Oliveria <span class="big-text"><i>(@tulin404)</i></span></div>
+                    <div id="small-saudation-text">Hi there,</div>
+                    <div class="big-saudation-text">Túlio Oliveira <span class="big-text"><i>(@tulin404)</i></span></div>
                 </div>
             </div>
         </section>
     </header>
     <div id="dashboard">
         <section id="dashboard-main">
-            <div class="dashboard-titles"><p>My notes</p><button><img src="assets/add.png" alt=""></button></div>
+            <div class="dashboard-titles"><p>My notes</p><button><img class="add-img" src="assets/add.png" alt=""></button></div>
             <div id="notes-container">
                 <div class="note">
                     <div class="note-body">
@@ -103,7 +102,7 @@
         </section>
         <section id="dashboard-side-features">
             <div id="reminders-container">
-                <div class="dashboard-titles"><p>Reminders</p><button><img src="assets/add.png" alt=""></button></div>
+                <div class="dashboard-titles"><p>Reminders</p><button><img class="add-img" src="assets/add.png" alt=""></button></div>
                 <div id="reminders">
                     <div class="reminder-item">
                         <p class="reminder-item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis</p>

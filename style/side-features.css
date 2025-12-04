@@ -12,8 +12,8 @@
     margin: 2px;
     display: block;
     height: 1px;
-    border-bottom: 1px solid grey;
     width: 100%;
+    background-color: var(--text-color);
 }
 
 #reminders-container {
@@ -42,7 +42,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     padding: 0 1rem;
-    background-color: white;
+    background-color: var(--note-bg-color);
 }
 
 .reminder-item-text {
