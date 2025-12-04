@@ -7,7 +7,7 @@
     --menu: hsl(0, 0%, 10%);
     --active-menu: hsl(0, 0%, 100%);
     --notes-shadow: hsla(0, 0%, 0%, 0.2);
-    --header-nav-shadow: rgba(0, 0, 0, 0.030);
+    --header-nav-shadow: hsla(0, 0%, 0%, 0.03);
     --note-bg-color: hsl(0, 0%, 100%);
 }
 
@@ -20,7 +20,7 @@
     --menu: hsl(0, 0%, 90%);
     --active-menu: hsl(0, 0%, 90%);
     --notes-shadow: hsla(0, 0%, 100%, 0.2);
-    --header-nav-shadow: rgba(0, 0, 0, 0.030);
+    --header-nav-shadow: hsla(0, 0%, 0%, 0.03);
     --note-bg-color: hsl(0, 0%, 25%);
 }
 
@@ -43,6 +43,11 @@ input {
     outline: none;
 }
 
+textarea {
+    outline: none;
+    resize: none;
+}
+
 /* BIG SECTIONS */
 
 body {
@@ -53,7 +58,7 @@ body {
     grid-template-rows: 1fr 4fr;
 
     * {
-        transition: all 0.2s linear;
+        transition: background-color 0.2s linear;
     }
     
 }
@@ -274,6 +279,7 @@ header {
     button {
         background-color: rgba(255, 255, 255, 0);
         cursor: pointer;
+        transition: transform 0.2s ease-in-out;
         
         &:hover {
             transform: translateY(-4px);

@@ -3,6 +3,7 @@ const menu = document.getElementById('ham-menu');
 const nav = document.getElementById('nav');
 const smallHeader = document.getElementById('small-header-section');
 const bodyNoNav = document.querySelectorAll('body > *:not(nav):not(#ham-menu)');
+const bodyNoInputNote = document.querySelectorAll('body')
 
 menu.addEventListener('click', () => {
     menu.classList.toggle('active');
@@ -44,3 +45,6 @@ themeBtn.addEventListener('click', () => {
 
      checkTheme()
 })
+
+// ADD NOTE
+const addBtn = document.getElementById('')
