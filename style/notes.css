@@ -98,13 +98,13 @@
 
 /* REMINDERS */
 #input-reminder {
-    display: none;
-    scale: 0;
+    /* display: none;
+    scale: 0; */
     position: absolute;
     z-index: 10;
     background-color: var(--note-bg-color);
-    height: clamp(15dvw, 250px, 40dvw);
-    width: clamp(15dvw, 250px, 40dvw);
+    height: clamp(30dvw, 350px, 65dvw);
+    width: clamp(30dvw, 350px, 65dvw);
     box-shadow: 0 0 4px var(--notes-shadow);
     border-radius: 8px;
     top: 50%;
