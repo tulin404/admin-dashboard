@@ -44,6 +44,10 @@ button {
     background-color: hsla(0, 0%, 100%, 0);
 }
 
+a {
+    text-decoration: none;
+}
+
 input {
     outline: none;
 }
@@ -298,6 +302,11 @@ header {
 /* BODY OPACITY CLASS (applying as a class to be maintanable) */
 .opacity {
     opacity: 0.4;
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100dvh;
 }
 
 /* MEDIA QUERIES */

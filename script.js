@@ -2,14 +2,16 @@
 const menu = document.getElementById('ham-menu');
 const nav = document.getElementById('nav');
 const smallHeader = document.getElementById('small-header-section');
+const body = document.querySelector('body');
 const bodyNoNav = document.querySelectorAll('body > *:not(nav):not(#ham-menu)');
 const bodyNoInputNote = document.querySelectorAll('body')
 
 menu.addEventListener('click', () => {
     menu.classList.toggle('active');
     nav.classList.toggle('active');
+    body.classList.toggle('no-scroll');
     bodyNoNav.forEach(e => {
-        e.classList.toggle('opacity')
+        e.classList.toggle('opacity');
     });
 })
 
@@ -58,9 +60,12 @@ themeBtn.addEventListener('click', () => {
 // ADD NOTE
 const addNoteBtn = document.getElementById('add-note-btn');
 const inputNote = document.getElementById('input-note');
+const bodyNoNotes = document.querySelectorAll('body > *:not(#input-note):not(#input-reminder)')
 
 addNoteBtn.addEventListener('click', () => {
     inputNote.classList.add('active');
+    bodyNoNotes.forEach(e => e.classList.toggle('opacity'));
+    body.classList.toggle('no-scroll');
 });
 
 // ADD REMINDER
@@ -69,6 +74,8 @@ const inputReminder = document.getElementById('input-reminder');
 
 addReminderBtn.addEventListener('click', () => {
     inputReminder.classList.add('active');
+    bodyNoNotes.forEach(e => e.classList.toggle('opacity'));
+    body.classList.toggle('no-scroll');
 });
 
 // CANCELL BUTTON
@@ -82,9 +89,13 @@ noteCancelBtn.addEventListener('click', () => {
     inputNoteTitle.value = '';
     inputNoteText.value = '';
     inputNote.classList.remove('active');
+    bodyNoNotes.forEach(e => e.classList.toggle('opacity'));
+    body.classList.toggle('no-scroll');
 });
 
 reminderCancelBtn.addEventListener('click', () => {
     inputReminderText.value = '';
     inputReminder.classList.remove('active');
+    bodyNoNotes.forEach(e => e.classList.toggle('opacity'));
+    body.classList.toggle('no-scroll');
 });
