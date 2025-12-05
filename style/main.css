@@ -217,6 +217,7 @@ header {
 }
 
 #search-input {
+    color: var(--text-color);
     background-color: var(--dashboard-input-bg-color);
 }
 
@@ -302,6 +303,7 @@ header {
 /* BODY OPACITY CLASS (applying as a class to be maintanable) */
 .opacity {
     opacity: 0.4;
+    pointer-events: none;
 }
 
 .no-scroll {

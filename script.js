@@ -1,3 +1,4 @@
+
 // HAMBURGUER MENU
 const menu = document.getElementById('ham-menu');
 const nav = document.getElementById('nav');
@@ -85,12 +86,16 @@ const inputNoteText = document.getElementById('input-note-text');
 const reminderCancelBtn = document.getElementById('input-reminder-cancel');
 const inputReminderText = document.getElementById('input-reminder-text');
 
-noteCancelBtn.addEventListener('click', () => {
+function clearNote() {
     inputNoteTitle.value = '';
     inputNoteText.value = '';
     inputNote.classList.remove('active');
     bodyNoNotes.forEach(e => e.classList.toggle('opacity'));
     body.classList.toggle('no-scroll');
+}
+
+noteCancelBtn.addEventListener('click', () => {
+    clearNote();
 });
 
 reminderCancelBtn.addEventListener('click', () => {
@@ -99,3 +104,40 @@ reminderCancelBtn.addEventListener('click', () => {
     bodyNoNotes.forEach(e => e.classList.toggle('opacity'));
     body.classList.toggle('no-scroll');
 });
+
+// SUBMIT NOTE
+const subNoteBtn = document.getElementById('input-note-sub');
+const notesContainer =  document.getElementById('notes-container');
+
+function createNewNote() {
+    const newNote = document.createElement('div');
+    newNote.classList.add('note');
+    let inputNoteTitleValue = inputNoteTitle.value;
+    let inputNoteTextValue = inputNoteText.value;
+    
+
+    newNote.innerHTML = 
+    `<div class="note-body">
+        <p class="note-title">${inputNoteTitleValue}</p>
+        <p class="note-text">${inputNoteTextValue}</p>
+    </div>
+    <div class="note-bottom">
+        <div class="note-date">
+            <button><img class="clock-img" src="assets/clock.png" alt=""></button>
+        </div>
+        <div class="note-buttons">
+            <button><img class="star-img" src="assets/star.png" alt=""></button>
+            <button><img class="trash-img" src="assets/trash.png" alt=""></button>
+        </div>
+    </div>`
+    
+
+    notesContainer.prepend(newNote);
+
+    clearNote()
+};
+
+subNoteBtn.addEventListener('click', () => {
+    createNewNote();
+})
+
