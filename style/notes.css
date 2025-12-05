@@ -25,6 +25,20 @@
     flex-direction: column;
 }
 
+.note-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+
+    .note-buttons {
+        display: flex;
+        gap: 1rem;
+    }
+    img {
+        height: 24px;
+    }
+}
+
 .note-title, .note-text, #input-note-title, #input-note-text {
     font-family: 'Noto Sans Display';
 }
@@ -40,8 +54,6 @@
 }
 
 #input-note {
-    display: none;
-    scale: 0;
     z-index: 10;
     position: absolute;
     background-color: var(--note-bg-color);
@@ -50,7 +62,12 @@
     box-shadow: 0 0 4px var(--notes-shadow);
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.25s ease-in-out;
+
+    &.active {
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
 #input-note-body, #input-reminder-body {
@@ -98,25 +115,20 @@
 
 /* REMINDERS */
 #input-reminder {
-    /* display: none;
-    scale: 0; */
     position: absolute;
     z-index: 10;
     background-color: var(--note-bg-color);
-    height: clamp(30dvw, 350px, 65dvw);
-    width: clamp(30dvw, 350px, 65dvw);
+    height: clamp(300px, 350px, 65dvw);
+    width: clamp(300px, 350px, 65dvw);
     box-shadow: 0 0 4px var(--notes-shadow);
     border-radius: 8px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.25s ease-in-out;
 
-    button {
-        border-radius: 10px;
-        padding: 0.5rem 1rem;
-        background-color: var(--nav-bg-color);
-        color: white;
-        font-family: 'Noto Sans Display';
+    &.active {
+        transform: translate(-50%, -50%) scale(1);
     }
 }
 
@@ -133,5 +145,28 @@
     #input-reminder-btns {
         display: flex;
         justify-content: space-between;
+
+        button {
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            background-color: var(--nav-bg-color);
+            color: white;
+            font-family: 'Noto Sans Display';
+        }
     }
+}
+
+#input-reminder-btns button:hover,
+#input-note-btns button:hover{
+    background-color: var(--hover-btn-color) !important;
+}
+
+#input-reminder-btns button:active,
+#input-note-btns button:active{
+    background-color: var(--active-btn-color) !important;
+}
+
+.hidden {
+    display: none;
+    scale: 0;
 }

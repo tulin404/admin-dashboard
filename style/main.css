@@ -2,6 +2,8 @@
     --logo-color: hsl(45, 100%, 75%);
     --dashboard-input-bg-color: hsl(214, 30%, 90%);
     --nav-bg-color: hsl(221, 50%, 45%);
+    --hover-btn-color: hsl(221, 50%, 30%);
+    --active-btn-color: hsl(221, 50%, 20%);
     --header-bg-color: hsl(0, 0%, 100%);
     --text-color: hsl(0, 0%, 10%);
     --menu: hsl(0, 0%, 10%);
@@ -14,7 +16,9 @@
 [data-theme='dark'] {
     --logo-color: hsl(45, 100%, 75%);
     --dashboard-input-bg-color: hsl(0, 0%, 15%);
-    --nav-bg-color: hsl(221, 50%, 10%);
+    --nav-bg-color: hsl(221, 50%, 15%);
+    --hover-btn-color: hsl(221, 50%, 10%);
+    --active-btn-color: hsl(221, 50%, 5%);
     --header-bg-color: hsl(0, 0%, 10%);
     --text-color: hsl(0, 0%, 90%);
     --menu: hsl(0, 0%, 90%);
@@ -36,7 +40,8 @@ div, nav, header, section {
 }
 
 button {
-    background-color: hsl(0, 0%, 100%);
+    cursor: pointer;
+    background-color: hsla(0, 0%, 100%, 0);
 }
 
 input {
@@ -278,7 +283,6 @@ header {
 
     button {
         background-color: rgba(255, 255, 255, 0);
-        cursor: pointer;
         transition: transform 0.2s ease-in-out;
         
         &:hover {

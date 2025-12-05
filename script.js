@@ -47,4 +47,35 @@ themeBtn.addEventListener('click', () => {
 })
 
 // ADD NOTE
-const addBtn = document.getElementById('')
+const addNoteBtn = document.getElementById('add-note-btn');
+const inputNote = document.getElementById('input-note');
+
+addNoteBtn.addEventListener('click', () => {
+    inputNote.classList.add('active');
+});
+
+// ADD REMINDER
+const addReminderBtn = document.getElementById('add-reminder-btn');
+const inputReminder = document.getElementById('input-reminder');
+
+addReminderBtn.addEventListener('click', () => {
+    inputReminder.classList.add('active');
+});
+
+// CANCELL BUTTON
+const noteCancelBtn = document.getElementById('input-note-cancel');
+const inputNoteTitle = document.getElementById('input-note-title');
+const inputNoteText = document.getElementById('input-note-text');
+const reminderCancelBtn = document.getElementById('input-reminder-cancel');
+const inputReminderText = document.getElementById('input-reminder-text');
+
+noteCancelBtn.addEventListener('click', () => {
+    inputNoteTitle.value = '';
+    inputNoteText.value = '';
+    inputNote.classList.remove('active');
+});
+
+reminderCancelBtn.addEventListener('click', () => {
+    inputReminderText.value = '';
+    inputReminder.classList.remove('active');
+});
