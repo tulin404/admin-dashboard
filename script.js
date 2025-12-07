@@ -114,9 +114,14 @@ function createNewNote() {
     newNote.classList.add('note');
     let inputNoteTitleValue = inputNoteTitle.value;
     let inputNoteTextValue = inputNoteText.value;
-    
-
-    newNote.innerHTML = 
+    if (!inputNoteTitleValue) {
+        inputNoteTitle.style.animation = 'shake 0.2s ease-in-out';
+        inputNoteTitle.style.border = '1px solid red';
+    } else if (!inputNoteTextValue) {
+        inputNoteText.style.animation = 'shake 0.2s ease-in-out';
+        inputNoteText.style.border = '1px solid red';
+    } else {
+        newNote.innerHTML = 
     `<div class="note-body">
         <p class="note-title">${inputNoteTitleValue}</p>
         <p class="note-text">${inputNoteTextValue}</p>
@@ -131,13 +136,13 @@ function createNewNote() {
         </div>
     </div>`
     
-
     notesContainer.prepend(newNote);
 
     clearNote()
+    }
 };
 
 subNoteBtn.addEventListener('click', () => {
     createNewNote();
-})
+});
 
