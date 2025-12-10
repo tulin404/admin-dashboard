@@ -1,6 +1,6 @@
 /* NOTES SECTION */
 
-#notes-container {
+#notes-container, #fav-notes-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 0.9fr));
     gap: 1rem;

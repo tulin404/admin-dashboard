@@ -424,7 +424,7 @@ header {
         padding: 32px 0 0 0 !important;
         justify-content: space-around;
     }
-    #notes-container {
+    #notes-container, #fav-notes-container {
         display: flex;
         justify-content: center;
         align-items: center;

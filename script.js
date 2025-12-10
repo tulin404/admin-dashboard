@@ -1,4 +1,3 @@
-
 // HAMBURGUER MENU
 const menu = document.getElementById('ham-menu');
 const nav = document.getElementById('nav');
@@ -27,6 +26,7 @@ function checkTheme() {
     const clockImg = document.querySelectorAll('.clock-img');
     const trashImg = document.querySelectorAll('.trash-img');
     const starImg = document.querySelectorAll('.star-img');
+    const markedStar = document.querySelectorAll('.marked-star');
 
     if (document.body.dataset.theme === 'dark') {
         moon.classList.add('active');
@@ -36,6 +36,7 @@ function checkTheme() {
         starImg.forEach(img => img.src = 'assets/star-dark.png');
         trashImg.forEach(img => img.src = 'assets/trash-dark.png');
         clockImg.forEach(img => img.src = 'assets/clock-dark.png');
+        markedStar.forEach(img => img.src = 'assets/marked-star-dark.png');
     } else {
         sun.classList.add('active');
         moon.classList.remove('active');
@@ -44,6 +45,7 @@ function checkTheme() {
         starImg.forEach(img => img.src = 'assets/star.png');
         trashImg.forEach(img => img.src = 'assets/trash.png');
         clockImg.forEach(img => img.src = 'assets/clock.png');
+        markedStar.forEach(img => img.src = 'assets/marked-star.png');
     }
 };
 
@@ -113,10 +115,17 @@ reminderCancelBtn.addEventListener('click', clearReminder);
 // SUBMIT NOTE
 const subNoteBtn = document.getElementById('input-note-sub');
 const notesContainer =  document.getElementById('notes-container');
+const favNotesContainer = document.getElementById('fav-notes-container');
+checkFavPadding();
 
 function createNewNote() {
+    let noteArray = Array.from(document.querySelectorAll('.note'));
     const newNote = document.createElement('div');
     newNote.classList.add('note');
+    const noteObj = {
+        id: noteArray.length
+    };
+    newNote.dataset.id = noteObj.id;
 
     let inputNoteTitleValue = inputNoteTitle.value;
     let inputNoteTextValue = inputNoteText.value;
@@ -147,7 +156,7 @@ function createNewNote() {
     
     notesContainer.prepend(newNote);
 
-    clearNote()
+    clearNote();
     }
 };
 
@@ -206,3 +215,78 @@ inputReminderText.addEventListener('input', (e) => {
     e.target.style.border = '';
     reminderCounter.textContent = e.target.value.length;
 });
+
+// NOTE BUTTONS
+// FAVORITE NOTE
+
+function favoriteNote(event) {
+    let noteTarget = event.target.closest('.note');
+    
+    if(!noteTarget.classList.contains('fav')) {
+        noteTarget.classList.add('fav');
+        favNotesContainer.prepend(noteTarget);
+
+        event.target.classList.add('marked-star');
+        checkFavPadding();
+        checkStarImg();
+        checkThemeForStar();
+    } else if (noteTarget.classList.contains('fav')){
+        noteTarget.classList.remove('fav');
+        notesContainer.prepend(noteTarget)
+        let newArray = Array.from(document.querySelectorAll('[class="note"]'));
+        newArray.sort((a, b) => {
+            return b.dataset.id - a.dataset.id;
+        });
+        newArray.forEach(note => notesContainer.appendChild(note));
+
+        event.target.classList.remove('marked-star');
+        checkFavPadding();
+        checkStarImg();
+        checkThemeForStar();
+    };
+};
+
+
+// CHECK
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('star-img')) {
+        favoriteNote(e);
+    }
+});
+
+function checkFavPadding() {
+    if (!favNotesContainer.hasChildNodes()) {
+        favNotesContainer.style.padding = '0';
+    } else {
+        favNotesContainer.style.padding = '1rem 1rem 0 1rem';
+    };
+};
+
+function checkThemeForStar() {
+    const starImg = document.querySelectorAll('.star-img');
+    const markedStar = document.querySelectorAll('.marked-star');
+
+    if (document.body.dataset.theme === 'dark') {
+        starImg.forEach(img => img.src = 'assets/star-dark.png')
+    } else {
+        starImg.forEach(img => img.src = 'assets/star.png')
+    };
+
+    if (document.body.dataset.theme === 'dark') {
+        markedStar.forEach(img => img.src = 'assets/marked-star-dark.png');
+    } else {
+        markedStar.forEach(img => img.src = 'assets/marked-star.png');
+    };
+};
+
+function checkStarImg() {
+    const starImg = document.querySelectorAll('.star-img');
+
+    starImg.forEach(star => {
+        if (star.classList.contains('marked-star')) {
+            star.src = 'assets/marked-star.png'
+        } else {
+            star.src = 'assets/star.png'
+        }
+    })
+};
